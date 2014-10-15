@@ -15,6 +15,7 @@ colors = [ (1,0,0,.8),
                 (0,1,0,.8), 
                 (0,0,1,.8),
                 ]
+view.plot_mesh()
 
 for color in colors:
     
@@ -35,6 +36,10 @@ for color in colors:
 
 view.to_file('test1.png')
 view.to_file('test2.jpg')
+
+#view.params['cortical_mesh'] =  'BrainMesh_ICBM152'
+
+#view.params['cortical_alpha'] =  0.5
 
 app.exec_()
 
