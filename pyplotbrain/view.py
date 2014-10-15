@@ -92,8 +92,8 @@ class View(QtGui.QWidget):
         self.glview.addItem(sp1)
     
     def add_edge(self, node_coords, connection_with, color = (1,1,1,1)):
-        for i in range(node_coords.shape[0]):
-            for j in range(node_coords.shape[1]):
+        for i in range(connection_with.shape[0]):
+            for j in range(connection_with.shape[1]):
                 if connection_with[i,j] == 0: continue
                 plt = gl.GLLinePlotItem(pos=np.vstack([node_coords[i], node_coords[j]]), color=color, width = connection_with[i,j])
                 self.glview.addItem(plt)
