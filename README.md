@@ -10,3 +10,19 @@ with pyqtgraph.
 When vispy will release this is will be rewrite.
 
 Samuel
+
+
+
+#########################################################
+
+Install:
+
+### QtOpenGL
+sudo apt-get install libqt4-opengl ## deja installé par defaut
+sudo apt-get install python-qt4-gl ## manquant par defaut
+
+###OpenGL.GL
+sudo apt-get install freeglut3
+sudo apt-get install freeglut3-dev ## pas sur que ce soit necessaire
+sudo apt-get install binutils-gold
+sudo apt-get install python-opengl ## PyOpenGL
