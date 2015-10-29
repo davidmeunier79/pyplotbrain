@@ -21,6 +21,9 @@ Install:
 sudo apt-get install libqt4-opengl ## deja installé par defaut
 sudo apt-get install python-qt4-gl ## manquant par defaut
 
+### pyqtgraph
+pip install pyqtgraph
+
 ###OpenGL.GL
 sudo apt-get install freeglut3
 sudo apt-get install freeglut3-dev ## pas sur que ce soit necessaire
