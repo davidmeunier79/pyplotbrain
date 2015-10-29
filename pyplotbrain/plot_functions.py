@@ -23,7 +23,7 @@ def hex_to_rgb(c1, alpha =1.):
     b = int(c1[5:7],16)/255.
     return (r, g, b, alpha)
     
-def plot_signif_graphs(channel_names,channel_coords,signif_diff_mat,export_path,pref):
+def plot_signif_graphs(channel_names,channel_coords,signif_diff_mat,export_path,pref,cortical_alpha = 0.5,graph_alpha = 1.0):
     
     #TODO FIXME: pourquoi Y est a l'envers ?????
     #~ coords[:,1] = -coords[:,1]
@@ -33,6 +33,10 @@ def plot_signif_graphs(channel_names,channel_coords,signif_diff_mat,export_path,
     view = ppb.addView(with_config = True)#, cortical_alpha = .4)
     
     view.plot_mesh()
+    
+    view.change_alpha_mesh()
+    
+    view.params['cortical_alpha'] =  cortical_alpha
     
     
     ################## tous les noeuds ont la meme couleur ##########################
@@ -56,7 +60,7 @@ def plot_signif_graphs(channel_names,channel_coords,signif_diff_mat,export_path,
     
     print cmap_vals
     
-    cmap_vals[:,3] = .7
+    cmap_vals[:,3] = graph_alpha
     
     
     view.add_edge(channel_coords,np.array(scale_signif_diff_mat == 1,dtype = int) * 2,color = cmap_vals[5])
