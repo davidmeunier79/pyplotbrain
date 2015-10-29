@@ -8,7 +8,7 @@ import numpy as np
 app = pg.mkQApp()
 
 
-view = ppb.addView(with_config = True, background_color = 'blue')
+view = ppb.addView(with_config = True)
 
 
 colors = [ (1,0,0,.8), 
@@ -22,6 +22,9 @@ for color in colors:
     n = 30
     
     node_coords = np.random.randn(n, 3)*20
+    
+    print node_coords
+    
     view.add_node(node_coords, color = color, size = 4)
 
     connection_with = np.zeros((n,n))
