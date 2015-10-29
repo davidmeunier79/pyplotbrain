@@ -11,7 +11,8 @@ from .plotmesh import cortical_meshes
 
 
 class View(QtGui.QWidget):
-    def __init__(self, parent = None, with_config = False, background_color = 'black' ):
+    #def __init__(self, parent = None, with_config = False, background_color = 'black' ):
+    def __init__(self, parent = None, with_config = False, background_color = 'white' ):
         QtGui.QWidget.__init__(self, parent)
         
         self.resize(800,600)
@@ -68,14 +69,26 @@ class View(QtGui.QWidget):
             alpha =  self.params['cortical_alpha']
             self.mesh = gl.GLMeshItem(vertexes=vertexes, faces=faces, smooth=True, drawFaces=True,
                                                     drawEdges=False,
-                                                    edgeColor=(1,1,1,.2), 
+                                                    #color = (0,0,0,0.8),
                                                     color = (1,1,1,alpha),
                                                     computeNormals = False,
-                                                    #~ glOptions='translucent',
-                                                    glOptions='additive',
+                                                    glOptions='translucent',
+                                                    #glOptions='additive',
                                                     #~ shader='balloon',
                                                     shader='shaded', 
                                                     )
+            
+            #self.mesh = gl.GLMeshItem(vertexes=vertexes, faces=faces, smooth=True, drawFaces=True,
+                                                    #drawEdges=False,
+                                                    #edgeColor=(1,1,1,.2), 
+                                                    #color = (1,1,1,alpha),
+                                                    #computeNormals = False,
+                                                    ##~ glOptions='translucent',
+                                                    #glOptions='additive',
+                                                    ##~ shader='balloon',
+                                                    #shader='shaded', 
+                                                    #)
+            
             self.glview.addItem(self.mesh)
         else:
             self.mesh.setMeshData(vertexes=vertexes, faces=faces)
