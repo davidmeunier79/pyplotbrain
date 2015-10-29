@@ -30,13 +30,18 @@ def plot_signif_graphs(channel_names,channel_coords,signif_diff_mat,export_path,
     
     
     app = pg.mkQApp()
-    view = ppb.addView(with_config = True)#, cortical_alpha = .4)
+        
+    view = ppb.addView(with_config = True,
+                    background_color = 'w',
+                    cortical_mesh = 'BrainMesh_ICBM152',
+                    cortical_color = 'k',
+                    )
     
     view.plot_mesh()
     
-    view.change_alpha_mesh()
-    
     view.params['cortical_alpha'] =  cortical_alpha
+    
+    view.change_color_mesh()
     
     
     ################## tous les noeuds ont la meme couleur ##########################
@@ -103,16 +108,25 @@ def plot_thr_cor_graphs(channel_names,channel_coords,thr_cor_mat,export_path,pre
     
         
     app = pg.mkQApp()
-    
-    view = ppb.addView(with_config = True)
+        
+    view = ppb.addView(with_config = True,
+                    background_color = 'w',
+                    cortical_mesh = 'BrainMesh_ICBM152',
+                    cortical_color = 'k',
+                    )
     
     view.plot_mesh()
-
+    
     view.params['cortical_alpha'] =  cortical_alpha
+    
+    view.change_color_mesh()
+    
+    
+    
     #view.params['cortical_alpha'] =  0.5
     #view.params['cortical_alpha'] =  0.1
 
-    view.change_alpha_mesh()
+    #view.change_alpha_mesh()
     
     dict_cmap_vals = {'1.0':'orange','0.0':'black','-1.0':'blue' }
     
